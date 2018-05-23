@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post 3
+{% endblock %}
+
+{% block main %}
+
+    <h2>Octave Cheat Sheet</h2>
+
+    <h3>Recursion</h3>
+
+    <p>The formal definition of recursion is an algorithmic technique
+        where a function, calls itself to perform part of a task. A good
+        example of recursion is the factorial function n!. Recursive
+        solutions have two main parts:</p>
+
+    <ul>
+        <li>Base case</li>
+        <li>Recursive case</li>
+    </ul>
+
+    <p>A recursion function pauses, and calls itself just like calling
+        any other function. In this way the functions stack on each
+        other, until reaching the base case. Then it returns a value
+        from the base case and teh functions pop back to the original
+        function call.
+    </p>
+
+    <p>python example of recursive factorial function:</p>
+
+    <pre>
+        def factorial( n ):
+            if n <1:   # base case
+                return 1
+            else:
+                return n * factorial( n - 1 )  # recursive call</pre>
+
+{% endblock %}

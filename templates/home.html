@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<a href="/home"><button class="btn btn-default">Dashboard Home</button></a>
+<a href="/edit/0"><button class="btn btn-default">Add a New Post</button></a>
+
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Slug</th>
+        <th>Title</th>
+        <th>Note</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+      <tr>
+        <td>{{ book.sno }}</td>
+        <td>{{ book.slug }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.note }}</td>
+        <td><a href="edit/{{book.sno}}">Edit</a>
+      </tr>
+
+    </tbody>
+      {% endfor %}
+  </table>
+</div>
+
+</body>
+</html>

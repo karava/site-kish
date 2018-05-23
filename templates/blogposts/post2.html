@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post 2
+{% endblock %}
+
+{% block main %}
+
+    <h2>See like a computer, digital image processing</h2>
+
+    <p>Computer vision is a fast growing field in computer science, going hand in hand with AI. For a computer a
+        picture speaks a thousand words, or literally millions of bits. The range of applications for CV include:
+        interactive art, mines inspection, stitching maps on the web or through advanced robotics.</p>
+
+    <p>An image is  a matrix of values. A black and white image is a matrix of gray-scale values (0-255, with 0 =
+        black, and 255 = white). Each value represents a 'pixel', which is also the name chosen by Google to lead
+        it's new range of iconic handphones in a push to tackle the iPhone's market share. Resolution is the number
+        of pixels in a screen, this can be specified in length x width.</p>
+
+    <p>An image can be described as an array, or a list of lists. It can be defined by a function of x and y
+        coordinates f(x,y). A video is a list containing a list of lists. It can be defined as a function with a
+        time dimension f(x,y,t).</p>
+
+    <p>With an understanding of the fundamental concepts of pixels, images, and videos you can appreciate the world
+        of digital image processing, and how computer's see, 'computer vision'.</p>
+
+    <p><a href="https://opencv.org/">OpenCV</a> is great library of programming functions mainly aimed at
+        real-time computer vision. You can find the <a
+                href="https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_intro/py_intro.html">Python Documentation here.</a></p>
+
+    <p>Other useful tools/references I have been exploring relating to digital image process or computer vision projects
+        include:</p>
+        <ul>
+            <li>
+                A book recommended to me by a smart guy, <a
+                    href="https://www.amazon.com/Digital-Image-Processing-Rafael-Gonzalez/dp/013168728X">'Digital
+                Image Processing, by Gonzalez and Woods'</a> provides a great introduction into the field. You only
+                need to read the introductory chapter 1, to get a good sense and feel for it.
+            </li>
+            <li>
+                Convert an old Android phone into a IP Webcam. <a
+                    href="https://www.cnet.com/au/how-to/turn-your-old-phone-into-a-home-security-camera/">check
+                out this link.</a> <a
+                        href="http://oguzgelal.com/build-a-motion-triggered-ip-cam-from-your-android-phone/">Here</a>
+                is a more detailed link explaining static IP addresses.
+            </li>
+            <li>
+                <a href="http://get.google.com/tango/">Google Tango</a> an augmented reality computing platform,
+                developed and authored by Google. Tango is different from other emerging 3D-sensing computer vision
+                products, in that it's designed to run on a standalone mobile phone or tablet and is chiefly
+                concerned with determining the device's position and orientation within the environment.
+            </li>
+            <li>
+                Buy understand some of the fundamentals of OpenCV and CV you find simple ways to re-use existing bits
+                and pieces out here, old webcams, mobile phones, single board computers (C.H.I.P., raspberry PI etc.)
+                into useful home automation tools for today. It's a great alternative to stay minimalist and avoid
+                buying more dedicated hardware, given you have an interest an a few spare hours up your sleeve (some
+                requisite beginner coding skills goes without saying). This may also give you the option for full
+                customisability. When purchasing new home automation tools be mindful of the fact where they offer
+                open source platforms, this will give you the flexibility but may be a tradeoff with security. Here
+                is a <a
+                    href="https://www.pyimagesearch.com/2015/05/25/basic-motion-detection-and-tracking-with-python-and-opencv/">link</a> to my first computer vision project I worked on, creating a motion detector for my Wemo
+                smart LED lights, through re-using an old android phone.
+            </li>
+            <li>
+                Create a custom Video recording app using <a href="https://wiki.python.org/moin/TkInter">tKinter</a> to create an executable GUI. For example press 's'
+                to start recording, 'p' to pause recording.
+            </li>
+            <li>
+                <a href="https://pjreddie.com/darknet/yolo/">YOLO</a>, Real-Time Object Detection. You only look once
+                (YOLO) is a state-of-the-art, real-time object detection system. It applies a single neural network
+                to an entire image, different to classifier-based systems.
+            </li>
+        </ul>
+
+{% endblock %}

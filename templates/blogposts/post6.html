@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post 3
+{% endblock %}
+
+{% block main %}
+
+    <h2>ML - Decision Trees</h2>
+
+    <p>Decision tree classifiers are one of the easiest to understand ML algorithms. They are based on the
+        scientific concept of entrophy. Decision Trees (DTs) are a non-parametric supervised learning method used for
+       classification and regression. The goal is to create a model that predicts the value of a target variable by
+        learning simple decision rules inferred from the data features.
+    </p>
+    <p>
+        Because trees can be visualised they are simple to understand and interpret. They use a white box model. If a
+        given situation is observable in a model, the explanation for the condition is easily explained by boolean
+        logic. By contrast, a black box model (e.g. in an artificial neural network), results may be more difficult
+        to interpret. This <a href="http://scikit-learn.org/stable/modules/tree.html">link</a> provides a good
+        reference to DTs in scikit learn.
+    </p>
+    <p>
+        To visualise DTs you can use Graphviz and pydotplus. Decision tree methods are highly versatile and
+        useful for data exploration. Real world applications can be found in various fields including computer vision
+        (features related to pixels), cancer applications, classifying sleep signals, drug analysis etc.
+    </p>
+    <img src="http://scikit-learn.org/stable/_images/iris.svg" alt="decision tree"
+             style="max-width:100%;max-heigh:100%">
+
+{% endblock %}

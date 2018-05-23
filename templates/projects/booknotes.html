@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block main %}
+
+    <h2>Book List</h2>
+
+    <ul>
+
+        {% for i in range (0,data|length) %}
+       <li>
+            <a href="/booknotes/{{ data[i]['slug'] }}">{{ data[i]['title']
+                }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
