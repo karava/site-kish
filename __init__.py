@@ -31,27 +31,13 @@ except pymysql.err.OperationalError:
                                  cursorclass=pymysql.cursors.DictCursor)
     blogpath = 'templates/blogposts'
 
-# if (not localserver):
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/kish'
-#     connection = pymysql.connect(host='139.59.228.125',
-#                                  user='root',
-#                                  password='kishan123',
-#                                  db='Kish',
-#                                  charset='utf8mb4',
-#                                  cursorclass=pymysql.cursors.DictCursor)
-#     db = SQLAlchemy(app)
-#     blogpath = 'templates/blogposts'
-#
-# else:
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
-#     connection = pymysql.connect(host='localhost',
-#                              user='root',
-#                              password='kishan123',
-#                              db='Kish',
-#                              charset='utf8mb4',
-#                              cursorclass=pymysql.cursors.DictCursor)
-#     db = SQLAlchemy(app)
-#     blogpath = '/var/www/FlaskApp/FlaskApp/templates/blogposts'
+try:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/kish'
+    db = SQLAlchemy(app)
+
+except:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
+    db = SQLAlchemy(app)
 
 
 #https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory
@@ -70,11 +56,11 @@ blogdict = dict(zip(bloglinks, blogtitles))
 print(blogdict)
 
 
-# class Books(db.Model):
-#     sno = db.Column(db.Integer, primary_key=True)
-#     title = db.Column(db.Text)
-#     note = db.Column(db.Text)
-#     slug = db.Column(db.String(20))
+class Books(db.Model):
+    sno = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text)
+    note = db.Column(db.Text)
+    slug = db.Column(db.String(20))
 
 @app.route('/')
 def hello_world():
@@ -164,4 +150,4 @@ def post3():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

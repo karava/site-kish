@@ -8,154 +8,120 @@
 
     <h2>Fundamental Computing Concepts</h2>
 
-    <h3>Recursion</h3>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Recursion
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+              <h3>Recursion</h3>
 
-    <p>The formal definition of recursion is an algorithmic technique
-        where a function, calls itself to perform part of a task. A good
-        example of recursion is the factorial function n!. Recursive
-        solutions have two main parts:</p>
+            <p>The formal definition of recursion is an algorithmic technique
+                where a function, calls itself to perform part of a task. A good
+                example of recursion is the factorial function n!. Recursive
+                solutions have two main parts:</p>
 
-    <ul>
-        <li>Base case</li>
-        <li>Recursive case</li>
-    </ul>
+            <ul>
+                <li>Base case</li>
+                <li>Recursive case</li>
+            </ul>
 
-    <p>A recursion function pauses, and calls itself just like calling
-        any other function. In this way the functions stack on each
-        other, until reaching the base case. Then it returns a value
-        from the base case and teh functions pop back to the original
-        function call.
-    </p>
+            <p>A recursion function pauses, and calls itself just like calling
+                any other function. In this way the functions stack on each
+                other, until reaching the base case. Then it returns a value
+                from the base case and teh functions pop back to the original
+                function call.
+            </p>
 
-    <p>python example of recursive factorial function:</p>
+            <p>python example of recursive factorial function:</p>
 
-    <pre>
-        def factorial( n ):
-            if n <1:   # base case
-                return 1
-            else:
-                return n * factorial( n - 1 )  # recursive call</pre>
+            <pre>
+                def factorial( n ):
+                    if n <1:   # base case
+                        return 1
+                    else:
+                        return n * factorial( n - 1 )  # recursive call</pre>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Exception handling (try-except/catch)
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+                <h3>Exception handling</h3>
 
-    <h3>Exception handling</h3>
+            <p> A lot of things can go wrong when you write a program. For example, you can have the following exceptions
+                errors in Python</p>
+            <ul>
+                <li>IO Error - if a file cannot be opened</li>
+                <li>ImportError - If python cannot find a module</li>
+                <li>ValueError - Raised when a built-in operation or function receives an argument that has the
+        right type but an inappropriate value</li>
+                <li>KeyboardInterrupt - Raised when the user hits the interrupt key (normally Control-C or Delete)</li>
+                <li>EOFError - Raised when one of the built-in functions (input() or raw_input()) hits an end-of-file
+                    condition (EOF) without reading any data </li>
+            </ul>
 
-    <p> A lot of things can go wrong when you write a program. For example, you can have the following exceptions
-        errors in Python</p>
-    <ul>
-        <li>IO Error - if a file cannot be opened</li>
-        <li>ImportError - If python cannot find a module</li>
-        <li>ValueError - Raised when a built-in operation or function receives an argument that has the
-right type but an inappropriate value</li>
-        <li>KeyboardInterrupt - Raised when the user hits the interrupt key (normally Control-C or Delete)</li>
-        <li>EOFError - Raised when one of the built-in functions (input() or raw_input()) hits an end-of-file
-            condition (EOF) without reading any data </li>
-    </ul>
+            <p>To avoid these errors, you could put check in for different possibilities like <code>os.path.isfile</code> or
+                <code>os.path.exists</code>. However trying to cover all possibilities could take quite a lot of
+                time. Alternatively you could go ahead and try and deal with problems as they happen. This is exactly what a
+                <code>try</code> statement does. The Syntax is similar to an <code>if</code> statement.
+            </p>
 
-    <p>To avoid these errors, you could put check in for different possibilities like <code>os.path.isfile</code> or
-        <code>os.path.exists</code>. However trying to cover all possibilities could take quite a lot of
-        time. Alternatively you could go ahead and try and deal with problems as they happen. This is exactly what a
-        <code>try</code> statement does. The Syntax is similar to an <code>if</code> statement.
-    </p>
+            <p>python example of an if statement</p>
+            <pre>
+                try:
+                    fin = open('bad_file')
+                    for line in fin:
+                        print line
+                    fin.close()
+                except:
+                    print 'Something went wrong.'
+            </pre>
 
-    <p>python example of an if statement</p>
-    <pre>
-        try:
-            fin = open('bad_file')
-            for line in fin:
-                print line
-            fin.close()
-        except:
-            print 'Something went wrong.'
-    </pre>
+            <p>Python begins by executing the try clause. If all goes well, it will skip the except clause and continue.
+                However if something goes wrong, it will pause, jump out of the <code>try</code> clause and run the
+                <code>except</code> clause. Handling an exception with a <code>try</code> statement is called <strong>catching
+                </strong> an exception. Catching an exception gives us an opportunity to fix the problem, or try again, or at
+                least end the program gracefully.
+            </p>
 
-    <p>Python begins by executing the try clause. If all goes well, it will skip the except clause and continue.
-        However if something goes wrong, it will pause, jump out of the <code>try</code> clause and run the
-        <code>except</code> clause. Handling an exception with a <code>try</code> statement is called <strong>catching
-        </strong> an exception. Catching an exception gives us an opportunity to fix the problem, or try again, or at
-        least end the program gracefully.
-    </p>
-
-    <p>There are a couple of ways the <code>try</code> clause can be used. You may not have a <code>except</code>
-        clause at all and use it as a brute force method to continue your program. You can use
-        <code>except Exception:</code> to avoid catching system exceptions like <code>SystemExit</code> or
-        <code>KeyboardInterrupt</code> Some code may use <code>except: pass</code>, however this may not be good
-        practice. Generally when you find an error, you should do something to handle it i.e. write it in a log file
-        . Further two principles of the Zen of Python are: <i>Explicit is better than implicit</i> and
-        <i>Errors should never pass silently</i>.</p>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Recursion
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-          <h3>Recursion</h3>
-
-        <p>The formal definition of recursion is an algorithmic technique
-            where a function, calls itself to perform part of a task. A good
-            example of recursion is the factorial function n!. Recursive
-            solutions have two main parts:</p>
-
-        <ul>
-            <li>Base case</li>
-            <li>Recursive case</li>
-        </ul>
-
-        <p>A recursion function pauses, and calls itself just like calling
-            any other function. In this way the functions stack on each
-            other, until reaching the base case. Then it returns a value
-            from the base case and teh functions pop back to the original
-            function call.
-        </p>
-
-        <p>python example of recursive factorial function:</p>
-
-        <pre>
-            def factorial( n ):
-                if n <1:   # base case
-                    return 1
-                else:
-                    return n * factorial( n - 1 )  # recursive call</pre>
+            <p>There are a couple of ways the <code>try</code> clause can be used. You may not have a <code>except</code>
+                clause at all and use it as a brute force method to continue your program. You can use
+                <code>except Exception:</code> to avoid catching system exceptions like <code>SystemExit</code> or
+                <code>KeyboardInterrupt</code> Some code may use <code>except: pass</code>, however this may not be good
+                practice. Generally when you find an error, you should do something to handle it i.e. write it in a log file
+                . Further two principles of the Zen of Python are: <i>Explicit is better than implicit</i> and
+                <i>Errors should never pass silently</i>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Collapsible Group Item #3
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
 
 
 {% endblock %}
