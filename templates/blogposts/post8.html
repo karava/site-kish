@@ -91,13 +91,39 @@ right type but an inappropriate value</li>
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+          Recursion
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <h3>Recursion</h3>
+
+        <p>The formal definition of recursion is an algorithmic technique
+            where a function, calls itself to perform part of a task. A good
+            example of recursion is the factorial function n!. Recursive
+            solutions have two main parts:</p>
+
+        <ul>
+            <li>Base case</li>
+            <li>Recursive case</li>
+        </ul>
+
+        <p>A recursion function pauses, and calls itself just like calling
+            any other function. In this way the functions stack on each
+            other, until reaching the base case. Then it returns a value
+            from the base case and teh functions pop back to the original
+            function call.
+        </p>
+
+        <p>python example of recursive factorial function:</p>
+
+        <pre>
+            def factorial( n ):
+                if n <1:   # base case
+                    return 1
+                else:
+                    return n * factorial( n - 1 )  # recursive call</pre>
       </div>
     </div>
   </div>
