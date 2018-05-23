@@ -31,14 +31,9 @@ except pymysql.err.OperationalError:
                                  cursorclass=pymysql.cursors.DictCursor)
     blogpath = 'templates/blogposts'
 
-try:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/kish'
-    db = SQLAlchemy(app)
-
-except:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
-    db = SQLAlchemy(app)
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
+db = SQLAlchemy(app)
+print("db did not work")
 
 #https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory
 bloglinks = []
