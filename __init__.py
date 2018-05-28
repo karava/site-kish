@@ -20,6 +20,8 @@ try:
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
     blogpath = '/var/www/FlaskApp/FlaskApp/templates/blogposts'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
+    db = SQLAlchemy(app)
 
 except pymysql.err.OperationalError:
     print("database not stored locally, accessing database through remote connection")
@@ -30,10 +32,11 @@ except pymysql.err.OperationalError:
                                  charset='utf8mb4',
                                  cursorclass=pymysql.cursors.DictCursor)
     blogpath = 'templates/blogposts'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@139.59.228.125/Kish'
+    db = SQLAlchemy(app)
+    print("db did not work")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
-db = SQLAlchemy(app)
-print("db did not work")
+
 
 #https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory
 bloglinks = []
