@@ -9,15 +9,16 @@
     <h2>How to run continuous scripts on your droplet</h2>
 
     <p>Sometimes it's great to have your scripts running while you sleep.
-    It's important to ensure it doesn't put too much load on your droplet.
-    Otherwise any website you may having on your droplet may crash.</p>
+    While doing so, it's important to ensure it doesn't put too much load on your droplet.
+    Otherwise any website you may be hosting on your droplet may crash.</p>
 
-    <p>First you need to copy and paste your code a directory on your droplet. For example use Filezilla or another
-        FTP application, to upload your file. You may put it in a new directory under the '/' folder.
-        Then SSH into your server using Putty or similar program</p>
+    <p>To enable continuous scripts, first you need to copy and paste your code to a directory on your droplet. For
+        example you can use Filezilla or another FTP application, to upload your file. Alternatively you can
+        pull/clone it with GIT. You may put it in a new directory under the '/' folder. Then SSH into your server
+        using Putty (for Windows) or a similar program</p>
 
-    <p>Then type the following code <code>nohup python3 yourscript.py</code> This will create a nohup.out file in
-        the same folder</p>
+    <p>Then type the following code <code>nohup python3 yourscript.py &</code> This will create a nohup.out file in
+        the same folder. The '&' at the end sends the process to the background, and frees up your terminal.</p>
 
     <p>Later to stop the process you need to find the process ID (PID) of the python3 process you set running. While
     SSHing into your server you can type the following to get a list of all the processes running and their ID
