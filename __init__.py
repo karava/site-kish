@@ -76,6 +76,7 @@ def booknotes():
     with connection.cursor() as cursor:
         sql = "SELECT DISTINCT title,slug FROM `books` ORDER BY slug"
         cursor.execute(sql)
+        cursor.close()
         data = cursor.fetchall()
 
     return render_template('projects/booknotes.html',data=data)
