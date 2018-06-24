@@ -45,13 +45,13 @@ blogtitles = []
 
 for blog in bloglinks:
     exampleFile = open(blogpath+'/{}'.format(blog))
-    exampleSoup = bs4.BeautifulSoup(exampleFile, "html")
+    exampleSoup = bs4.BeautifulSoup(exampleFile, "html5lib")
     test = exampleSoup.select('h2')
     test = test[0].getText()
     blogtitles.append(test)
 
 blogdict = dict(zip(bloglinks, blogtitles))
-print(blogdict)
+# print(blogdict)
 
 
 class Books(db.Model):
