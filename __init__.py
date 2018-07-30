@@ -70,8 +70,8 @@ def hello_world():
                            blogdict=blogdict)
 
 
-@app.route('/booknotes')
-def booknotes():
+@app.route('/booksandnotes/kindlenotes')
+def kindlenotes():
 
     with connection.cursor() as cursor:
         sql = "SELECT DISTINCT title,slug FROM `books` ORDER BY slug"
@@ -79,12 +79,17 @@ def booknotes():
         data = cursor.fetchall()
         cursor.close()
 
-    return render_template('projects/booknotes.html',data=data)
+    return render_template('projects/kindlenotes.html',data=data)
 
 
 @app.route('/chinese')
 def chinese():
     return render_template('projects/chinese.html')
+
+
+@app.route('/booksandnotes')
+def booksandnotes():
+    return render_template('projects/booksandnotes.html')
 
 
 @app.route('/booknotes/<string:slug>', methods=['GET'])
