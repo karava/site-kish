@@ -19,7 +19,7 @@ try:
                              db='Kish',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
-    blogpath = '/var/www/FlaskApp/FlaskApp/templates/blogposts'
+    blogpath = '/var/www/FlaskApp/FlaskApp/templates/content/blogposts'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
     db = SQLAlchemy(app)
 
