@@ -20,7 +20,7 @@ try:
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
     blogpath = '/var/www/FlaskApp/FlaskApp/templates/content/blogposts'
-    bookreviewpath = 'templates/content/bookreviews'
+    bookreviewpath = '/var/www/FlaskApp/FlaskApp/templates/content/bookreviews'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
     db = SQLAlchemy(app)
 
