@@ -6,16 +6,26 @@
 
 {% block main %}
 
-    <h2>Book List</h2>
+    <h2>Book Reviews</h2>
 
-    <ul>
+        <ul>
+          {% for book in bookreviewdict %}
+          <li>
+            <a href="/bookreviews/{{ book }}">{{ bookreviewdict[book] }}</a>
+          </li>
+          {% endfor %}
+        </ul>
 
-        {% for i in range (0,data|length) %}
-       <li>
-            <a href="/booknotes/{{ data[i]['slug'] }}">{{ data[i]['title']
-                }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+
+    <h2>Kindle Book List with highlighted notes</h2>
+
+        <ul>
+           {% for i in range (0,data|length) %}
+           <li>
+                <a href="/booknotes/{{ data[i]['slug'] }}">{{ data[i]['title']
+                    }}</a>
+            </li>
+            {% endfor %}
+        </ul>
 
 {% endblock %}
