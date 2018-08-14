@@ -31,7 +31,8 @@ except pymysql.err.OperationalError:
                                  db='Kish',
                                  charset='utf8mb4',
                                  cursorclass=pymysql.cursors.DictCursor)
-    blogpath = 'templates/blogposts'
+    blogpath = 'templates/content/blogposts'
+    bookreviewpath = 'templates/content/bookreviews'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@139.59.228.125/Kish'
     db = SQLAlchemy(app)
     print("db did not work")
@@ -43,6 +44,10 @@ bloglinks = []
 bloglinks = os.listdir(blogpath)
 blogtitles = []
 
+bookreviewlinks = []
+bookreviewlinks = os.listdir(bookreviewpath)
+bookreviewtitles = []
+
 for blog in bloglinks:
     exampleFile = open(blogpath+'/{}'.format(blog))
     exampleSoup = bs4.BeautifulSoup(exampleFile, "html5lib")
@@ -50,7 +55,15 @@ for blog in bloglinks:
     test = test[0].getText()
     blogtitles.append(test)
 
+for book in bookreviewlinks:
+    exampleFile = open(bookreviewpath+'/{}'.format(book))
+    exampleSoup = bs4.BeautifulSoup(exampleFile, "html5lib")
+    test = exampleSoup.select('h2')
+    test = test[0].getText()
+    bookreviewtitles.append(test)
+
 blogdict = dict(zip(bloglinks, blogtitles))
+bookreviewdict = dict(zip(bookreviewlinks, bookreviewtitles))
 # print(blogdict)
 
 
@@ -79,7 +92,7 @@ def booknotes():
         data = cursor.fetchall()
         cursor.close()
 
-    return render_template('projects/booknotes.html',data=data)
+    return render_template('projects/booknotes.html', data=data, bookreviewdict = bookreviewdict)
 
 
 @app.route('/chinese')
@@ -96,7 +109,11 @@ def dynamic(slug):
 
 @app.route('/blogs/<string:booklink>', methods=['GET'])
 def dynamic1(booklink):
-    return render_template('blogposts/{}'.format(booklink))
+    return render_template('content/blogposts/{}'.format(booklink))\
+
+@app.route('/bookreviews/<string:book>', methods=['GET'])
+def dynamic2(book):
+    return render_template('content/bookreviews/{}'.format(book))
 
 
 @app.route('/exercises')
