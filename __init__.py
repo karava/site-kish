@@ -20,6 +20,8 @@ try:
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
     blogpath = '/var/www/FlaskApp/FlaskApp/templates/content/blogposts'
+    bookreviewpath = '/var/www/FlaskApp/FlaskApp/templates/content/bookreviews'
+
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:kishan123@localhost/Kish'
     db = SQLAlchemy(app)
 
@@ -50,14 +52,14 @@ bookreviewtitles = []
 
 for blog in bloglinks:
     exampleFile = open(blogpath+'/{}'.format(blog))
-    exampleSoup = bs4.BeautifulSoup(exampleFile, "html5lib")
+    exampleSoup = bs4.BeautifulSoup(exampleFile, "html.parser")
     test = exampleSoup.select('h2')
     test = test[0].getText()
     blogtitles.append(test)
 
 for book in bookreviewlinks:
     exampleFile = open(bookreviewpath+'/{}'.format(book))
-    exampleSoup = bs4.BeautifulSoup(exampleFile, "html5lib")
+    exampleSoup = bs4.BeautifulSoup(exampleFile, "html.parser")
     test = exampleSoup.select('h2')
     test = test[0].getText()
     bookreviewtitles.append(test)
