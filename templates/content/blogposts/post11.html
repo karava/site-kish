@@ -6,11 +6,26 @@
 
 {% block main %}
 
-    <h2>Unsupervised learning algorithms</h2>
+    <h2>Jupyter notebook tips for experimentation</h2>
 
-    <h3>K-means and clustering</h3>
+    <h3>%%time</h3>
 
-    <img src="{{ url_for('static', filename='img/kmeansanimation1.gif') }}"
-                                       alt="K-means animation">
+    <p>Use %%time at the start of cell blocks. Particularly useful when working with large datasets, can extrapolate
+    the time for one iteration/batch to calculate the time for entire dataset.</p>
+
+    <h3>tqdm</h3>
+
+    <p>Sets up a progress bar for an iterator, to show progress and estimate time remaining for iterations. Handy to
+    get the feel of progress in a cell block, especially for iterating large datasets. Some good instructions can be
+        found <a
+                href="https://towardsdatascience.com/progress-bars-in-python-4b44e8a4c482">here</a>.</p>
+
+    <h3>Continuously running Jupyter in the background</h3>
+
+    <p>Consider running Jupyter server continuously in the background, either locally or on a virtual machine. Make
+        sure you start the server in the appropriate root folder for your needs. This
+        will mean you won't need to keep a terminal with the server running, and this way it keeps your workspace
+        clean. Also it's worthwhile creating a bash script to quickly launch the server, so you don't need to
+        remember the nohup command.</p>
 
 {% endblock %}
