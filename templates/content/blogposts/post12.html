@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post 12
+{% endblock %}
+
+{% block main %}
+
+    <h2>Finding files and searching files in Linux using the FIND and GREP commands</h2>
+
+    <p>Have you ever spent large chunks of time, hopelessly trying to find a file or find which file contains a
+        certain snippet of code? There are two linux commands FIND and GREP that can be very helpful in these cases,
+        and also many other cases aswell. When it comes to locating data on your system, both provide a powerful and
+        flexible way to do so. It is worthwhile spending time understanding how they work, and adding them to your
+        essentials toolbox.</p>
+
+    <p>The commands are great for linux servers or virtual machines where you do not have access to a GUI. In Windows
+        and MacOS off course you can simply use the built in file search tools for basic functionality, i.e.
+        Spotlight search or Windows Desktop Search, and or code editors i.e. Xcode, Visual Studio Code, PyCharm to
+        search within project directories. The Windows terminal also has a similar command to grep, 'findstr', see
+        link in reference. Where ever possible, it is most advised to work locally using a text editor for code of
+        any complexity, this gives you the freedom and ease of use to do find and replace, and search easily using a
+        native interface.</p>
+
+    <p>We generally use FIND for searching filenames and use GREP to search content inside of files, the two can also
+        be used together. Below, we'll introduce these commands and their basic usage, accompanied with some more
+        advanced use cases for grep.</p>
+
+    <h3>The FIND command in linux</h3>
+
+    <p>The basic command for finding a file follows the expression,
+        <strong>'find WHERE WHAT'</strong>, or more specifically:</p>
+
+    <code>find [path] [expression]</code>
+
+    <p>The results are given as the paths to files that match the command. A common path used is *. In which case *
+        is a wildcard, it matches everything in the current directory (except, by default, files/directories starting
+        with a .). Note find, automatically searches recursively, where grep does not.</p>
+
+    <p>An example is:</p>
+
+    <pre>find ./ -name '*jpg'</pre>
+
+    <p>other useful arguments:</p>
+    <table border="1px">
+        <col width="80px"
+        <tr>
+            <td>-name</td>
+            <td>restricts your results to files that match the given expression. If you don't use -name will simply list all files recursively from the starting point folder.</td>
+        </tr>
+        <tr>
+            <td>-iname</td>
+            <td>case insensitive</td>
+        </tr>
+        <tr>
+            <td>-o</td>
+            <td>logical OR</td>
+        </tr>
+        <tr>
+            <td>-type</td>
+            <td>f to search for files. d for directories</td>
+        </tr>
+        <tr>
+            <td>-size</td>
+            <td>i.e. '+1G'</td>
+        </tr>
+        <tr>
+            <td>-mtime</td>
+            <td>modification time in days, - (less than), or + (more than). i.e. '-mtime -7'</td>
+        </tr>
+        <tr>
+            <td>-mmin</td>
+            <td>same as above, but in minutes</td>
+        </tr>
+    </table>
+
+    <p>For more advanced commands check out the manual pages or the links in the reference below.</p>
+
+    <h3>The GREP command in linux</h3>
+
+    <p>The GREP command is used to search text within specific files or folders. It searches for a match of the given
+        strings or words, within lines of the specified files and folders. The GREP is a very powerful command,
+        especially when combined with regular expressions in the search text.  It can be a useful tool for finding
+        all occurrences of a search term in a selection of files, filtering a log file or stream, or as part of a
+        script or chain of commands.</p>
+
+    <p>The basic command for searching files follow the expression, <strong>'grep WHAT WHERE'</strong>. It is generally used to
+        search
+        a particular file, but can also be used recursively to search a directory. The grep results list both paths
+        to the files, and the line that contains the matched string. Either of these can be suppressed using the
+        command options -h, or -l respectively.</p>
+
+    <code>grep [option...] [patterns] [file...]</code>
+
+    <p>If you want to search multiple files in a directory and recursively through all subdirectories, the -r flag
+        enables recursive searching through a directory tree. As mentioned above, find by default searches
+        recursively, whereas grep does not.</p>
+
+    <h4>Regular expresssions</h4>
+    <p>The true power of grep lies in its ability to use regular expressions for complex pattern matching. Regex
+         patterns are also supported by the -E option if you want to search for a set of strings rather than one
+        literal.</p>
+
+    <h4>Redirecting output</h4>
+    <p>You may also redirect output from a command to grep using a pipe:</p>
+    <pre>tail -f /var/log/apache/error.log | grep 'some text'</pre>
+
+    <p>Use cases for grep commands:</p>
+    <ul>
+	    <li>When performing administrative tasks on your Linode, many commands will give you more information than you need.
+        Using grep allows you to filter that output in order to find only the data that’s relevant. </li>
+        <li>Filtering logs with grep - One popular use of grep is to extract useful information from system logs.</li>
+        <li>Grep compressed files with zgrep</li>
+	    <li>Filtering Commands with Grep - grep can be used to filter long help files to more efficiently find the
+        options for a specific argument you may be looking for. Grep is also useful for filtering the output of ls
+        when listing the contents of directories with a large number of files.</li>
+        <li>Useful for searching through long config files for a particular variable, and also all instances of that
+            variable.</li>
+        <li>Write scripts to extract all comments with TODO, in a codebase.</li>
+    </ul>
+
+    <h4>Example grep commands:</h4>
+    <p>Search all files in current directory and sub-directories re-cursively</p>
+    <pre>grep -r "string" .</pre>
+    <p>Search all files in current directory only and skip errors</p>
+    <pre>grep -d skip "Book" *</pre>
+
+    <h4>Useful Grep command options</h4>
+    <table border="1px">
+        <tr>
+            <td>-i</td>
+            <td>Ignore case distinctions on Linux and Unix</td>
+        </tr>
+        <tr>
+            <td>-w</td>
+            <td>Force PATTERN to match only whole words</td>
+        </tr>
+        <tr>
+            <td>-v</td>
+            <td>Select non-matching lines</td>
+        <tr>
+            <td>-n</td>
+            <td>Print line number with output lines</td>
+        </tr>
+        <tr>
+            <td>-h</td>
+            <td>Suppress the Unix file name prefix on output</td>
+        </tr>
+        <tr>
+            <td>-r</td>
+            <td>Search directories recursively on Linux</td>
+        </tr>
+        <tr>
+            <td>-R</td>
+            <td>Just like -r but follow all symlinks</td>
+        </tr>
+        <tr>
+            <td>-l</td>
+            <td>Print only names of FILEs with selected lines</td>
+        </tr>
+        <tr>
+            <td>-c</td>
+            <td>Print only a count of selected lines per FILE</td>
+        </tr>
+        <tr>
+            <td>--color</td>
+            <td>Display matched pattern in colors</td>
+        </tr>
+    </table>
+
+    <h3>References:</h3>
+    <h4>Find:</h4>
+        <p>https://opensource.com/article/18/4/how-use-find-linux</p>
+        <p>https://phoenixnap.com/kb/guide-linux-find-command - explains usage of FIND combined with GREP, and delete and
+            execute arguments </p>
+
+    <h4>Grep:</h4>
+        <p>https://www.linode.com/docs/tools-reference/tools/how-to-grep-for-text-in-files/</p>
+        <p>https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/</p>
+        <p>https://searchdatacenter.techtarget.com/tip/Using-grep-and-sed-to-find-and-replace - using grep and sed to
+        do find and replace</p>
+
+    <h4>findstr (Windows alternative):</h4>
+        <p>https://www.itechtics.com/using-findstr-windows/</p>
+
+{% endblock %}
