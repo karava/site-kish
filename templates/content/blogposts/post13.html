@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post 13
+{% endblock %}
+
+{% block main %}
+
+    <h2>Useful shell commands - to make life easier</h2>
+
+        <h3>Viewing files in the terminal</h3>
+
+            <p><code>cat</code>  : concatenate file and print file to standard output</p>
+            <p><code>less</code> : loads quickly, it allows you to scroll up and down within the file. It shows the top of the file without waiting for the entire file to load, it is espically useful for peaking into long files. Press 'q' to exit.</p>
+            <p><code>more</code> : more is similar to less. Press 'q' to exit.</p>
+            <p><code>head</code> : Used to print the first N lines of a file. It accepts N as input and the default value of N is 10.</p>
+            <p><code>tail</code> : Used to print the last N-1 lines of a file. It accepts N as input and the default value of N is 10.</p>
+
+        <h3>Redirecting output with '>' and '>>'</h3>
+
+            <code>>></code><p> : append rather than overwrite to output file</p>
+
+        <h3>Piping standard output with '|'</h3>
+
+        <h3>File and directory manipulation commands</h3>
+
+            <p><code>touch</code> : Used to create or update a file.</p>
+
+            <p>Here are some steps to enable your virtual environments in Jupyter notebook. You may be able to skip step 1,
+                and go directly to step 2.</p>
+            <p>STEP 1: in conda env terminal, <code>ipython kernel install —user —name=.venv (or name of your
+            environment)</code>. STEP 2: in conda env, <code>conda install nb_conda_kernels</code></p>
+
+        <h3>A summary of usefull controll keys when reading man pages.</h3>
+            Key	Behaviour
+            <p>q:	Quit and get back to the terminal</p>
+            <p>Space bar or F:	Move forward one page</p>
+            <p>D:	Move forward half a page</p>
+            <p>B:	Move backwards one page</p>
+            <p>U:	Move backwards half a page</p>
+        </h3>
+
+        <h3>List of other useful commands</h3>
+            <ul>
+                <li>man [command]</li>
+                <li>info [command]</li>
+                <li>sort</li>
+                <li>cal : prints a calendar</li>
+                <li>sed : for replacing strings in files</li>
+            </ul>
+
+
+        <h3>Useful references</h3>
+            <ul>
+                <li>https://www.geeksforgeeks.org/basic-shell-commands-in-linux/</li>
+                <li>https://www.geeksforgeeks.org/basic-linux-commands-day-day-life/</li>
+            </ul>
+{% endblock %}
