@@ -35,4 +35,13 @@
     <p>STEP 1: in conda env terminal, <code>ipython kernel install —user —name=.venv (or name of your
     environment)</code>. STEP 2: in conda env, <code>conda install nb_conda_kernels</code></p>
 
+    <h3>Setup a Jupyter notebook server</h3>
+
+    <p>There are two options to view a jupyter notebook on a remote server. One is while sshing into the server to tunnel as follows:</p>
+    <p>For further reference about this refer to this <a href="https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh">link</a></p>
+    <code>local_user@local_host$ ssh -N -f -L localhost:8888:localhost:8889 remote_user@remote_host</code>
+    <p>Alternatively you can use Jupyter Lab to do this and run this command on the server:</p>
+    <code>jupyter lab --ip 0.0.0.0 --port 45888</code>
+    
+
 {% endblock %}
