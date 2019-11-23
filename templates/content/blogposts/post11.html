@@ -42,6 +42,11 @@
     <code>local_user@local_host$ ssh -N -f -L localhost:8888:localhost:8889 remote_user@remote_host</code>
     <p>Alternatively you can use Jupyter Lab to do this and run this command on the server:</p>
     <code>jupyter lab --ip 0.0.0.0 --port 45888</code>
+
+    <h3>When is it good to use Jupyter NB for development</h3>
+
+    <p>Jupyter NoteBook (JNB) is an amazing tool and in particular when it is used for the right purposes in the right manner including for data analysis and debugging. As a loose guideline, JNB is particularly useful when you are prone to errors at an early stage when writing a script or short program. When you are freely experimenting, exploring or don't know what you are doing use JNB. Additionally, JNB's strength is it's documentation capabilities that allow you to write cells with Markdown.<p>
+    <p>To keep notes on experimentation within the one notebook, it can be useful to mark cells or groups of cells as Experiment 1, Experiment 2 etc. JNB's can be exported as html to be served on websites, or as python files to be deployed elsewhere. It can also be useful when developing a script, with the knowledge that you will be converting it to a python file, you can begin writing it in JNB as if you were preparing it in Pycharm for example, after converting you can keep a copy of the NB in the repo, for future development.</p>
     
 
 {% endblock %}
